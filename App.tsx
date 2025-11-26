@@ -17,6 +17,12 @@ const App: React.FC = () => {
     setBgClass('bg-slate-950');
   };
 
+  const subjects = [
+    { id: 'dbms', label: 'DBMS' },
+    { id: 'ada', label: 'ADA' },
+    { id: 'en', label: 'EN' },
+  ];
+
   return (
     <main 
       className={`
@@ -50,6 +56,28 @@ const App: React.FC = () => {
               onClick={handleSorryClick} 
               href="https://drive.google.com/drive/folders/1fsM--O8nkNnyf2365BZsnELEPrqHTzbS?usp=sharing"
             />
+
+            {/* Subject Buttons */}
+            <div className="mt-10 flex flex-wrap justify-center gap-4 animate-in slide-in-from-bottom-5 fade-in duration-1000 delay-200">
+              {subjects.map((subject) => (
+                <button
+                  key={subject.id}
+                  className="
+                    px-6 py-2 
+                    rounded-full 
+                    bg-slate-800/40 hover:bg-slate-700/60 
+                    border border-slate-700 hover:border-slate-500 
+                    text-slate-400 hover:text-white 
+                    transition-all duration-300 
+                    active:scale-95 
+                    font-bold tracking-widest text-sm uppercase
+                    backdrop-blur-sm
+                  "
+                >
+                  {subject.label}
+                </button>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="animate-in slide-in-from-bottom-10 fade-in duration-700 flex flex-col items-center text-center">
